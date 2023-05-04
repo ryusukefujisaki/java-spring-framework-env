@@ -1,0 +1,12 @@
+networks:
+  default:
+    name: java_spring_framework_network
+services:
+  spring:
+    build:
+      context: spring
+      args:
+        APP_ROOT: $APP_ROOT
+    container_name: spring
+    volumes:
+      - ./spring:$APP_ROOT
