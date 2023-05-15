@@ -7,6 +7,8 @@ services:
       context: spring
       args:
         APP_ROOT: $APP_ROOT
+    ports:
+      - 8080:8080
     container_name: spring
     volumes:
       - ./spring:$APP_ROOT
