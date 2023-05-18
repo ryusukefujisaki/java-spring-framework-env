@@ -5,6 +5,12 @@ services:
   spring:
     build:
       context: spring
-    ports:
-      - 8080:8080
     container_name: spring
+  httpd:
+    build:
+      context: httpd
+    ports:
+      - 80:80
+    container_name: httpd
+    depends_on:
+      - spring
