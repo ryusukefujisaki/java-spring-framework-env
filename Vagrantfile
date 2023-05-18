@@ -17,6 +17,7 @@ Vagrant.configure(CONFIG_VERSION) do |config|
   config.vm.box_url = "https://oracle.github.io/vagrant-projects/boxes/oraclelinux/8.json"
   config.vm.hostname = "java-spring-framework.local"
   config.vm.network :private_network, ip: "192.168.99.104"
+  config.vm.network "forwarded_port", guest: 80, host: 80
   config.vm.synced_folder ".", "/home/vagrant/java-spring-framework-env"
 
   config.vm.provider "virtualbox" do |vb|
