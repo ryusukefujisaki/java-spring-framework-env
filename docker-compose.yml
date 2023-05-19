@@ -1,11 +1,15 @@
 networks:
   default:
     name: java_spring_framework_network
+volumes:
+  mysql-volume:
 services:
   spring:
     build:
       context: spring
     container_name: spring
+    depends_on:
+      - mysql
   httpd:
     build:
       context: httpd
@@ -14,3 +18,14 @@ services:
     container_name: httpd
     depends_on:
       - spring
+  mysql:
+    build:
+      context: mysql
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: $MYSQL_DATABASE
+      MYSQL_USER: $MYSQL_USER
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+    volumes:
+      - mysql-volume:/var/lib/mysql
