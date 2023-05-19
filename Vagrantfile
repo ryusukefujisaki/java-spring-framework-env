@@ -6,12 +6,6 @@ CONFIG_VERSION = "2"
   end
 end
 
-if Vagrant::Util::Platform.windows?
-  unless Vagrant.has_plugin? "vagrant-winnfsd"
-    raise "Vagrant plugin vagrant-winnfsd is required. Please install it in this way. `vagrant plugin install vagrant-winnfsd`"
-  end
-end
-
 Vagrant.configure(CONFIG_VERSION) do |config|
   config.vm.box = "oraclelinux/8"
   config.vm.box_url = "https://oracle.github.io/vagrant-projects/boxes/oraclelinux/8.json"
