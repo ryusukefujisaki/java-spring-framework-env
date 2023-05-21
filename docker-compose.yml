@@ -8,6 +8,8 @@ services:
     build:
       context: spring
     container_name: spring
+    volumes:
+      - ./spring/java-spring-framework/target/java-spring-framework-0.0.1-SNAPSHOT.war:/usr/local/tomcat/webapps/java-spring-framework.war
     depends_on:
       - mysql
   httpd:
